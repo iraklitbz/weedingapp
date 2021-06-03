@@ -28,24 +28,24 @@
           <div class="flex-group">
             <h3 class="main-headline">¿Vas a asistir a la boda?</h3>
             <label class="switch">
-              <input type="checkbox" checked v-on:click="habemusWedding">
+              <input type="checkbox" checked v-model="weedingAsistentes.asistes">
               <span class="slider round"></span>
             </label>
           </div>
           <div class="flex-group column">
             <h3 class="main-headline">Nombre</h3>
-            <input class="form-control" type="text" placeholder="Tu nombre">
+            <input class="form-control" type="text" placeholder="Tu nombre" v-model="weedingAsistentes.nombre">
           </div>
-        <div class="flex-group" v-if="this.goToWedding">
+        <div class="flex-group" v-if="this.weedingAsistentes.asistes">
             <h3 class="main-headline">¿Vas acompañado/a?</h3>
             <label class="switch">
-              <input type="checkbox">
+              <input type="checkbox" v-model="weedingAsistentes.pareja">
               <span class="slider round"></span>
             </label>
           </div>
-          <div class="flex-group column" v-if="this.goToWedding">
+          <div class="flex-group column" v-if="this.weedingAsistentes.asistes">
             <h3 class="main-headline">¿Que sules tomar?</h3>
-            <input class="form-control" type="text" placeholder="Whisky, Ron, Vino...">
+            <input class="form-control" type="text" placeholder="Whisky, Ron, Vino..." v-model="weedingAsistentes.bebida">
           </div>
 
             <div class="btn-send" v-on:click="SendForm">Enviar</div>
@@ -62,13 +62,13 @@
 
     <div class="box" ref="block4">
      <h2 class="main-headline">Comparte tus fotos de la boda con nosotros subiendo a a una carpeta compartida!</h2>
-     <a target="_blank" class="share-files" href="https://www.dropbox.com/sh/hi5wjm6bgfh84z2/AAD6E7Fm8EW5ojZLOClz0WU_a?dl=0">
+     <a target="_blank" class="share-files" href="https://www.dropbox.com/request/iuBOXfBLEjwquaTldiCm">
       <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><path d="M4,5h13v7h2V5c0-1.103-0.897-2-2-2H4C2.897,3,2,3.897,2,5v12c0,1.103,0.897,2,2,2h8v-2H4V5z"/><path d="M8 11L5 15 16 15 12 9 9 13z"/><path d="M19 14L17 14 17 17 14 17 14 19 17 19 17 22 19 22 19 19 22 19 22 17 19 17z"/></svg>
      </a>
    </div>
      </div>
 
-      <div class="btn-circle">
+      <div class="btn-circle" >
         <div v-on:click="toggleMenu" v-if="!this.isActive"><svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"><path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z"/></svg></div>
         <div v-on:click="toggleMenu" v-if="this.isActive"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 24 24"><path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z"/></svg></div>
       </div>
@@ -78,30 +78,43 @@
 </template>
 
 <script>
-
+ import { db } from './../firebase.js';
 export default {
   name: 'App',
   data() {
     return {
       isActive: false,
       isSended: false,
-      goToWedding: true
+      weedingAsistentes: {
+        nombre: '',
+        asistes: true,
+        pareja: false,
+        bebida: ''
+
+      }
     }
   },
   methods:{
     toggleMenu() {
       this.isActive = !this.isActive
     },
-    habemusWedding() {
-       this.goToWedding = !this.goToWedding
-    },
     scrollToAnchorPoint(refName) {
       const el = this.$refs[refName]
       el.scrollIntoView({ behavior: 'smooth'})
     },
     SendForm() {
-      this.isSended = !this.isSended
-    }
+      db.collection('asistentes').add({
+        nombre: this.weedingAsistentes.nombre,
+        asistes: this.weedingAsistentes.asistes,
+        pareja: this.weedingAsistentes.pareja,
+        bebida: this.weedingAsistentes.bebida
+      })
+      .then(doc => {
+          console.log(doc.id)
+          this.isSended = !this.isSended;
+      })
+    },
+
   }
 
 }
