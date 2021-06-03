@@ -10,7 +10,7 @@
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block1')">Confirmación de asistencia</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block2')">¿Donde se celebra?</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block3')">Horario autobus</li>
-          <li class="nav-item" v-on:click="scrollToAnchorPoint('block4')">Menu 3</li>
+          <li class="nav-item" v-on:click="scrollToAnchorPoint('block4')">Comparte tus fotos de la boda</li>
         </ul>
       </div>
 
@@ -58,6 +58,13 @@
 
    <div class="box" ref="block3">
      <h2 class="main-headline">Horario autobuses</h2>
+   </div>
+
+    <div class="box" ref="block4">
+     <h2 class="main-headline">Comparte tus fotos de la boda con nosotros subiendo a a una carpeta compartida!</h2>
+     <a target="_blank" class="share-files" href="https://www.dropbox.com/sh/hi5wjm6bgfh84z2/AAD6E7Fm8EW5ojZLOClz0WU_a?dl=0">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><path d="M4,5h13v7h2V5c0-1.103-0.897-2-2-2H4C2.897,3,2,3.897,2,5v12c0,1.103,0.897,2,2,2h8v-2H4V5z"/><path d="M8 11L5 15 16 15 12 9 9 13z"/><path d="M19 14L17 14 17 17 14 17 14 19 17 19 17 22 19 22 19 19 22 19 22 17 19 17z"/></svg>
+     </a>
    </div>
      </div>
 
@@ -174,6 +181,20 @@ table {
 .main-headline {
       font-family: 'ABeeZee', sans-serif;
       line-height: 33px;
+}
+
+.share-files {
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.share-files svg {
+  fill: hsl(336, 52%, 49%);
 }
 
 h2.main-headline {
