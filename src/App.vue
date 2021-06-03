@@ -34,7 +34,8 @@
           </div>
           <div class="flex-group column">
             <h3 class="main-headline">Nombre</h3>
-            <input class="form-control" type="text" placeholder="Tu nombre" v-model="weedingAsistentes.nombre">
+            <input class="form-control" v-bind:class="{ error: formError }" type="text" placeholder="Tu nombre" v-model="weedingAsistentes.nombre" v-on:change="inputCambiando">
+            <span v-if="formError" class="small-text">Por favor, necesitamos saber tu nombre, muchas gracias</span>
           </div>
         <div class="flex-group" v-if="this.weedingAsistentes.asistes">
             <h3 class="main-headline">¿Vas acompañado/a?</h3>
@@ -48,7 +49,10 @@
             <input class="form-control" type="text" placeholder="Whisky, Ron, Vino..." v-model="weedingAsistentes.bebida">
           </div>
 
-            <div class="btn-send" v-on:click="SendForm">Enviar</div>
+            <div class="btn-send" v-on:click="SendForm">
+              <span v-if="!loading">Enviar</span>
+              <div v-if="loading" data-load="loading"></div>
+            </div>
     </form>
    </div>
 
@@ -85,6 +89,8 @@ export default {
     return {
       isActive: false,
       isSended: false,
+      loading: false,
+      formError: false,
       weedingAsistentes: {
         nombre: '',
         asistes: true,
@@ -102,17 +108,33 @@ export default {
       const el = this.$refs[refName]
       el.scrollIntoView({ behavior: 'smooth'})
     },
+    inputCambiando(){
+      console.log('asd')
+      if(this.weedingAsistentes.nombre == '') {
+        this.formError = true
+      } else {
+        this.formError = false
+      }
+    },
     SendForm() {
-      db.ref('asistentes').set({
-        nombre: this.weedingAsistentes.nombre,
-        asistes: this.weedingAsistentes.asistes,
-        pareja: this.weedingAsistentes.pareja,
-        bebida: this.weedingAsistentes.bebida
-      })
-      .then(doc => {
-          console.log(doc.id)
-          this.isSended = !this.isSended;
-      })
+      if(this.weedingAsistentes.nombre == '') {
+        this.formError = true
+      }
+      else {
+        this.loading = !this.loading;
+        this.formError = false;
+        db.collection('asistentes').add({
+          nombre: this.weedingAsistentes.nombre,
+          asistes: this.weedingAsistentes.asistes,
+          pareja: this.weedingAsistentes.pareja,
+          bebida: this.weedingAsistentes.bebida
+        })
+        .then(doc => {
+            console.log(doc.id)
+            this.isSended = !this.isSended;
+            this.loading = !this.loading;
+        })
+      }
     },
 
   }
@@ -142,6 +164,90 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+[data-load] {
+    width: 5em;
+    height: 5em;
+    border-radius: calc(5 / 16 * 1rem);
+    position: relative;
+    cursor: wait;
+    overflow: clip;
+    contain: content;
+}
+
+[data-load="loaded"] {
+    cursor: auto;
+}
+
+[data-load]::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+}
+
+[data-load="loaded"]::before {
+    animation: explode 0.2s linear;
+}
+
+[data-load="loaded"]::after {
+    display: none;
+}
+
+[data-load="loading"]::after {
+    content: "";
+    position: absolute;
+    left: calc(50% - (0.75em / 2));
+    top: calc(50% - (0.75em / 2));
+    width: 0.75em;
+    height: 0.75em;
+    background-color: #fff;
+    border-radius: 50%;
+    display: block;
+    animation: wiggle 0.3s linear infinite alternate;
+}
+
+@keyframes wiggle {
+    0%,
+    20% {
+        transform: translatex(-1em) scalex(1);
+        animation-timing-function: ease-in;
+    }
+
+    50% {
+        transform: translatex(0) scalex(2);
+        animation-timing-function: ease-out;
+    }
+
+    80%,
+    100% {
+        transform: translatex(1em) scalex(1);
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+
 
 input[type="color"],
 input[type="date"],
@@ -298,6 +404,8 @@ cursor: pointer;
 z-index: 9999;
 }
 
+
+
 .btn-circle svg {
   fill: #fff;
 }
@@ -404,6 +512,14 @@ z-index: 9999;
   padding: 0px 0px 0 10px;
   background-color: #f2f8f8;
   transition: all 0.2s linear;
+}
+.form-control.error {
+  border: 1px solid #be3c6f;
+}
+.form-control + .small-text {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #be3c6f;
 }
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #519b93
