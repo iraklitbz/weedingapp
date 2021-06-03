@@ -28,7 +28,7 @@
           <div class="flex-group">
             <h3 class="main-headline">¿Vas a asistir a la boda?</h3>
             <label class="switch">
-              <input type="checkbox">
+              <input type="checkbox" checked v-on:click="habemusWedding">
               <span class="slider round"></span>
             </label>
           </div>
@@ -36,14 +36,14 @@
             <h3 class="main-headline">Nombre</h3>
             <input class="form-control" type="text" placeholder="Tu nombre">
           </div>
-        <div class="flex-group">
+        <div class="flex-group" v-if="this.goToWedding">
             <h3 class="main-headline">¿Vas acompañado/a?</h3>
             <label class="switch">
               <input type="checkbox">
               <span class="slider round"></span>
             </label>
           </div>
-          <div class="flex-group column">
+          <div class="flex-group column" v-if="this.goToWedding">
             <h3 class="main-headline">¿Que sules tomar?</h3>
             <input class="form-control" type="text" placeholder="Whisky, Ron, Vino...">
           </div>
@@ -77,12 +77,16 @@ export default {
   data() {
     return {
       isActive: false,
-      isSended: false
+      isSended: false,
+      goToWedding: true
     }
   },
   methods:{
     toggleMenu() {
       this.isActive = !this.isActive
+    },
+    habemusWedding() {
+       this.goToWedding = !this.goToWedding
     },
     scrollToAnchorPoint(refName) {
       const el = this.$refs[refName]
@@ -117,6 +121,25 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+}
+
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select:focus,
+textarea {
+  font-size: 16px;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -161,10 +184,13 @@ h2.main-headline {
   font-style: italic;
 }
 h3.main-headline {
-  font-size: 19px;
-   color: #4b8d88;
+  font-size: 16px;
+   color: #376763;
      text-align: center;
      
+}
+.h3.main-headline + input {
+  margin-top: 7px;
 }
 .main-logo {
   text-align: center;
@@ -244,7 +270,7 @@ z-index: 9999;
 
 .menu {
   width: 100%;
-  height: 60vh;
+  height: 86vh;
   position: fixed;
   top: -100%;
   left: 0px;
@@ -254,7 +280,28 @@ z-index: 9999;
    border-bottom-right-radius: 9px;
   box-shadow: 0 9px 9px -2px #ddd;
   z-index: 9998;
-  
+   display: flex;
+  align-items: center;
+}
+.menu ul {
+  width: 100%;
+}
+
+.menu:before {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  background-image: url("./assets/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  opacity: 0.6;
+ 
 }
 
 .menu:after {
@@ -270,6 +317,7 @@ z-index: 9999;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
+ 
 }
 
 .menu.open {
@@ -318,10 +366,13 @@ z-index: 9999;
   border: 1px solid #d9ebe9;
   border-radius: 6px;
   box-shadow: 0px;
-  height: 45px;
+  height: 55px;
   padding: 0px 0px 0 10px;
   background-color: #f2f8f8;
   transition: all 0.2s linear;
+}
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #519b93
 }
 .form-control:focus{
   background-color: #fff;
@@ -333,7 +384,6 @@ z-index: 9999;
   width: 100%;
   padding: 20px 0;
      border-top:1px solid #d9ebe9 ;
-      border-bottom:1px solid #d9ebe9 ;
          margin-bottom: 0px;
 }
 .flex-group.center {
