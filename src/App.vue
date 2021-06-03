@@ -103,7 +103,7 @@ export default {
       el.scrollIntoView({ behavior: 'smooth'})
     },
     SendForm() {
-      db.collection('asistentes').add({
+      db.ref('asistentes').set({
         nombre: this.weedingAsistentes.nombre,
         asistes: this.weedingAsistentes.asistes,
         pareja: this.weedingAsistentes.pareja,
