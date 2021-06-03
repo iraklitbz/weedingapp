@@ -88,9 +88,10 @@ export default {
   data() {
     return {
       isActive: false,
-      isSended: false,
+      isSended: localStorage.sended,
       loading: false,
       formError: false,
+      formIsSended: false,
       weedingAsistentes: {
         nombre: '',
         asistes: true,
@@ -133,6 +134,7 @@ export default {
             console.log(doc.id)
             this.isSended = !this.isSended;
             this.loading = !this.loading;
+            localStorage.sended = this.isSended;
         })
       }
     },
