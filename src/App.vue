@@ -48,6 +48,10 @@
             </label>
           </div>
           <div class="flex-group column" v-if="this.weedingAsistentes.asistes">
+            <h3 class="main-headline">¿intolerancia a algo?</h3>
+            <input class="form-control" type="text" placeholder="Gluten..." v-model="weedingAsistentes.tolerancia">
+          </div>
+          <div class="flex-group column" v-if="this.weedingAsistentes.asistes">
             <h3 class="main-headline">¿Que sules tomar?</h3>
             <input class="form-control" type="text" placeholder="Whisky, Ron, Vino..." v-model="weedingAsistentes.bebida">
           </div>
@@ -121,7 +125,8 @@ export default {
         nombre: '',
         asistes: true,
         pareja: false,
-        bebida: ''
+        bebida: '',
+        tolerancia: ''
 
       }
     }
@@ -153,7 +158,8 @@ export default {
           nombre: this.weedingAsistentes.nombre,
           asistes: this.weedingAsistentes.asistes,
           pareja: this.weedingAsistentes.pareja,
-          bebida: this.weedingAsistentes.bebida
+          bebida: this.weedingAsistentes.bebida,
+          tolerancia: this.weedingAsistentes.tolerancia
         })
         .then(doc => {
             console.log(doc.id)
