@@ -10,6 +10,8 @@
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block1')">Confirmación de asistencia</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block2')">¿Donde se celebra?</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block3')">Horario autobus</li>
+          <li class="nav-item" v-on:click="scrollToAnchorPoint('block34')">¿Nos quieres hacer algún regalo?</li>
+          <li class="nav-item" v-on:click="scrollToAnchorPoint('block5')">Contacto</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block4')">Comparte tus fotos de la boda</li>
         </ul>
       </div>
@@ -23,7 +25,8 @@
       <h2 class="main-headline">Muchas gracias por tu tiempo! recibido el formulario</h2>
     </div>
     <form v-if="!isSended">
-          <h2 class="main-headline">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <h2 class="main-headline-alt"><b>¡Nos casamos!</b></h2>
+          <h2 class="main-headline"> Esperamos que nos acompañéis el día <span>25 de septiembre</span> a las <span>18:15</span> en la casa rural Sabory en <span>hiendelaencina.</span></h2>
 
           <div class="flex-group">
             <h3 class="main-headline">¿Vas a asistir a la boda?</h3>
@@ -58,14 +61,36 @@
 
    <div class="box" ref="block2">
      <h2 class="main-headline">¿Donde se celebra?</h2>
+     <ul class="main-list">
+       <li><span class="hour">18:30</span><span> Ceremonia</span> - Casa rural sabory.</li>
+        <li><span class="hour">19:15</span><span> Cocktel</span> - Casa rural sabory.</li>
+         <li><span class="hour">21:30</span><span> Cena</span> - Restaurante sabory (en la plaza)</li>
+          <li><span>Después de cenar, música y barra libre</span> - Casa rural sabory</li>
+     </ul>
    </div>
 
    <div class="box" ref="block3">
      <h2 class="main-headline">Horario autobuses</h2>
+     <p>Próximamente</p>
    </div>
 
+    <div class="box" ref="block34">
+     <h2 class="main-headline">¿Nos quieres hacer algún regalo?</h2>
+     <h6 class="small-headline">Nº de cuenta:</h6>
+     <h4 class="main-headline bold">ES56 2085 7555 1703 3024 4767</h4>
+     
+   </div>
+
+   <div class="box" ref="block5">
+     <h2 class="main-headline">¿Cualquier duda?</h2>
+     <div class="contact"><h2>Alicia: <a href="tel:+34665872614">665872614</a></h2> <a class="icon" href="https://api.whatsapp.com/send?phone=+34665872614"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.403,5.633C16.708,3.936,14.454,3.001,12.053,3	c-4.948,0-8.976,4.027-8.978,8.977c0,1.582,0.413,3.126,1.198,4.488L3,21.116l4.759-1.249c1.312,0.715,2.788,1.092,4.29,1.093h0.004	l0,0c4.947,0,8.975-4.027,8.977-8.977C21.03,9.585,20.098,7.33,18.403,5.633 M12.053,19.445H12.05	c-1.339-0.001-2.652-0.36-3.798-1.041l-0.272-0.162l-2.824,0.741l0.753-2.753l-0.177-0.282c-0.747-1.188-1.141-2.561-1.141-3.971	c0.002-4.114,3.349-7.461,7.465-7.461c1.993,0.001,3.866,0.778,5.275,2.188c1.408,1.411,2.184,3.285,2.183,5.279	C19.512,16.097,16.165,19.445,12.053,19.445 M16.146,13.856c-0.225-0.113-1.327-0.655-1.533-0.73	c-0.205-0.075-0.354-0.112-0.504,0.112s-0.58,0.729-0.711,0.879s-0.262,0.168-0.486,0.056s-0.947-0.349-1.804-1.113	c-0.667-0.595-1.117-1.329-1.248-1.554s-0.014-0.346,0.099-0.458c0.101-0.1,0.224-0.262,0.336-0.393	c0.112-0.131,0.149-0.224,0.224-0.374s0.038-0.281-0.019-0.393c-0.056-0.113-0.505-1.217-0.692-1.666	C9.627,7.787,9.442,7.845,9.304,7.839c-0.13-0.006-0.28-0.008-0.429-0.008c-0.15,0-0.393,0.056-0.599,0.28	C8.07,8.336,7.491,8.878,7.491,9.982c0,1.104,0.804,2.171,0.916,2.321c0.112,0.15,1.582,2.415,3.832,3.387	c0.536,0.231,0.954,0.369,1.279,0.473c0.537,0.171,1.026,0.146,1.413,0.089c0.431-0.064,1.327-0.542,1.514-1.066	c0.187-0.524,0.187-0.973,0.131-1.067C16.52,14.025,16.369,13.968,16.146,13.856"/></svg></a></div>
+     <div class="contact"><h2>Marco: <a href="tel:+34669148644">669148644</a></h2><a class="icon" href="https://api.whatsapp.com/send?phone=+34669148644"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.403,5.633C16.708,3.936,14.454,3.001,12.053,3	c-4.948,0-8.976,4.027-8.978,8.977c0,1.582,0.413,3.126,1.198,4.488L3,21.116l4.759-1.249c1.312,0.715,2.788,1.092,4.29,1.093h0.004	l0,0c4.947,0,8.975-4.027,8.977-8.977C21.03,9.585,20.098,7.33,18.403,5.633 M12.053,19.445H12.05	c-1.339-0.001-2.652-0.36-3.798-1.041l-0.272-0.162l-2.824,0.741l0.753-2.753l-0.177-0.282c-0.747-1.188-1.141-2.561-1.141-3.971	c0.002-4.114,3.349-7.461,7.465-7.461c1.993,0.001,3.866,0.778,5.275,2.188c1.408,1.411,2.184,3.285,2.183,5.279	C19.512,16.097,16.165,19.445,12.053,19.445 M16.146,13.856c-0.225-0.113-1.327-0.655-1.533-0.73	c-0.205-0.075-0.354-0.112-0.504,0.112s-0.58,0.729-0.711,0.879s-0.262,0.168-0.486,0.056s-0.947-0.349-1.804-1.113	c-0.667-0.595-1.117-1.329-1.248-1.554s-0.014-0.346,0.099-0.458c0.101-0.1,0.224-0.262,0.336-0.393	c0.112-0.131,0.149-0.224,0.224-0.374s0.038-0.281-0.019-0.393c-0.056-0.113-0.505-1.217-0.692-1.666	C9.627,7.787,9.442,7.845,9.304,7.839c-0.13-0.006-0.28-0.008-0.429-0.008c-0.15,0-0.393,0.056-0.599,0.28	C8.07,8.336,7.491,8.878,7.491,9.982c0,1.104,0.804,2.171,0.916,2.321c0.112,0.15,1.582,2.415,3.832,3.387	c0.536,0.231,0.954,0.369,1.279,0.473c0.537,0.171,1.026,0.146,1.413,0.089c0.431-0.064,1.327-0.542,1.514-1.066	c0.187-0.524,0.187-0.973,0.131-1.067C16.52,14.025,16.369,13.968,16.146,13.856"/></svg></a></div>
+     
+   </div>
+
+
     <div class="box" ref="block4">
-     <h2 class="main-headline">Comparte tus fotos de la boda con nosotros subiendo a a una carpeta compartida!</h2>
+     <h2 class="main-headline">Comparte tus fotos de la boda con nosotros subiendo a una carpeta compartida!</h2>
      <a target="_blank" class="share-files" href="https://www.dropbox.com/request/iuBOXfBLEjwquaTldiCm">
       <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><path d="M4,5h13v7h2V5c0-1.103-0.897-2-2-2H4C2.897,3,2,3.897,2,5v12c0,1.103,0.897,2,2,2h8v-2H4V5z"/><path d="M8 11L5 15 16 15 12 9 9 13z"/><path d="M19 14L17 14 17 17 14 17 14 19 17 19 17 22 19 22 19 19 22 19 22 17 19 17z"/></svg>
      </a>
@@ -299,7 +324,7 @@ table {
  
  
 }
-.main-headline {
+.main-headline, .main-headline-alt {
       font-family: 'ABeeZee', sans-serif;
       line-height: 33px;
 }
@@ -318,12 +343,35 @@ table {
   fill: hsl(336, 52%, 49%);
 }
 
-h2.main-headline {
+h2.main-headline, h2.main-headline-alt {
   font-size: 19px;
   margin-bottom: 30px;
   color: #4b8d88;
   text-align: center;
   font-style: italic;
+  
+}
+.small-headline {
+   font-size: 14px;
+  margin-bottom: 2px;
+  color: #be3c6f;
+  text-align: center;
+  font-style: italic;
+}
+h4.main-headline {
+    font-size: 19px;
+  text-align: center;
+  color: #294d4a;
+}
+h2.main-headline span {
+    color: #294d4a;
+  }
+
+h2.main-headline-alt {
+  margin-bottom: 5px;
+   font-size: 24px;
+   font-weight: 500;
+
 }
 h3.main-headline {
   font-size: 16px;
@@ -388,6 +436,11 @@ body:before {
   border: 1px solid #eee;
   border-radius: 10px;
   padding: 20px ;
+}
+.box p {
+  text-align: center;
+  font-style: italic;
+  color: #4b8d88;
 }
 .btn-circle {
   background-color: #be3c6f;
@@ -617,6 +670,63 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.main-list li {
+font-size: 16px;
+  margin-bottom: 10px;
+  color: #4b8d88;
+  text-align: left;
+  font-style: italic;
+  font-family: 'ABeeZee', sans-serif;
+      line-height: 33px;
+}
+
+.main-list li span {
+ color: #294d4a;
+}
+
+.main-list li .hour {
+display: block;
+text-align: left;
+  color: #4b8d88;
+}
+
+.main-list li:last-child {
+margin-top: 40px;
+}
+
+.main-headline.bold {
+  background-color: #be3c6f;
+  color: #fff;
+  margin: -20px;
+  margin-top: 10px;
+  border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'ABeeZee', sans-serif;
+   color: #4b8d88;
+}
+
+.contact:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.contact h2 a {
+  margin-left: 7px;
+  color: #294d4a;
+  text-decoration: none;
+}
+
+.contact svg {
+  margin-left: 7px;
+  fill: #4AC459;
 }
 
 </style>
