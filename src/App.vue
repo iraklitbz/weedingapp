@@ -9,6 +9,7 @@
         <ul>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block1')">Confirmación de asistencia</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block2')">¿Donde se celebra?</li>
+          <li class="nav-item" v-on:click="scrollToAnchorPoint('block22')">Como llegar</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block3')">Horario autobus</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block34')">¿Nos quieres hacer algún regalo?</li>
           <li class="nav-item" v-on:click="scrollToAnchorPoint('block5')">Contacto</li>
@@ -29,7 +30,10 @@
           <h2 class="main-headline"> Esperamos que nos acompañéis el día <span>25 de septiembre</span> a las <span>18:15</span> en la casa rural Sabory en <span>hiendelaencina.</span></h2>
 
           <div class="flex-group">
+            <div class="h-group">
             <h3 class="main-headline">¿Vas a asistir a la boda?</h3>
+            <h6>Confirmar antes del 1 de septiembre</h6>
+            </div>
             <label class="switch">
               <input type="checkbox" checked v-model="weedingAsistentes.asistes">
               <span class="slider round"></span>
@@ -71,6 +75,20 @@
          <li><span class="hour">21:30</span><span> Cena</span> - Restaurante sabory (en la plaza)</li>
           <li><span>Después de cenar, música y barra libre</span> - Casa rural sabory</li>
      </ul>
+   </div>
+
+   <div class="box" ref="block22">
+     <h2 class="main-headline">Como llegar</h2>
+     <ul class="main-list">
+       <li><span> Coger A-2 </span> dirección Zaragoza</li>
+        <li><span> Coger CM-10 </span> dirección Ronda Norte, aprox. 4km</li>
+         <li><span> Coger CM-101 </span> dirección Humanes, aprox. 55 km</li>
+          <li><span>A la altura de Fuencemillan,</span> en la rotonda, coger CM-1001. Aprox. 25km</li>
+          <li><span> Girar a la izquierda en el cruce.</span> Hiendelaencina</li>
+            <li><span class="meson">Mesón Sabory</span> - <span class="casa">Casa rural sabory</span> - <span class="carabas">Casa Carabás</span> - <span class="perla">Casa rural la Perla</span></li>
+
+     </ul>
+     <img class="map" src="./assets/mapa.svg" />
    </div>
 
    <div class="box" ref="block3">
@@ -348,6 +366,20 @@ table {
 .share-files svg {
   fill: hsl(336, 52%, 49%);
 }
+
+.main-list li .meson {
+  color: rgb(3, 139, 139);
+}
+.main-list li .casa {
+  color: rgb(141, 46, 230);
+}
+.main-list li .carabas {
+  color: #be3c6f;
+}
+.main-list li .perla {
+  color: #2196F3;
+}
+
 
 h2.main-headline, h2.main-headline-alt {
   font-size: 19px;
@@ -733,6 +765,22 @@ margin-top: 40px;
 .contact svg {
   margin-left: 7px;
   fill: #4AC459;
+}
+
+.h-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.h-group h6 {
+  font-style: italic;
+  font-size: 12px;
+  color: #be3c6f;
+}
+.map {
+  width: 100%;
 }
 
 </style>
