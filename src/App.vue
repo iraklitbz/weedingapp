@@ -27,7 +27,7 @@
     </div>
     <form v-if="!isSended">
           <h2 class="main-headline-alt"><b>¡Nos casamos!</b></h2>
-          <h2 class="main-headline"> Esperamos que nos acompañéis el día <span>25 de septiembre</span> a las <span>18:15</span> en la casa rural Sabory en <span>hiendelaencina.</span></h2>
+          <h2 class="main-headline"> Esperamos que nos acompañéis el día <span>25 de septiembre</span> a las <span>18:15</span> en la casa rural Sabory en <span>Hiendelaencina.</span></h2>
 
           <div class="flex-group">
             <div class="h-group">
@@ -56,7 +56,7 @@
             <input class="form-control" type="text" placeholder="Gluten..." v-model="weedingAsistentes.tolerancia">
           </div>
           <div class="flex-group column" v-if="this.weedingAsistentes.asistes">
-            <h3 class="main-headline">¿Que sules tomar?</h3>
+            <h3 class="main-headline">¿Que sueles tomar?</h3>
             <input class="form-control" type="text" placeholder="Whisky, Ron, Vino..." v-model="weedingAsistentes.bebida">
           </div>
 
@@ -70,10 +70,10 @@
    <div class="box" ref="block2">
      <h2 class="main-headline">¿Donde se celebra?</h2>
      <ul class="main-list">
-       <li><span class="hour">18:30</span><span> Ceremonia</span> - Casa rural sabory.</li>
-        <li><span class="hour">19:15</span><span> Cocktel</span> - Casa rural sabory.</li>
-         <li><span class="hour">21:30</span><span> Cena</span> - Restaurante sabory (en la plaza)</li>
-          <li><span>Después de cenar, música y barra libre</span> - Casa rural sabory</li>
+       <li><span class="hour">18:30</span><span> Ceremonia</span> - Casa rural Sabory.</li>
+        <li><span class="hour">19:15</span><span> Cocktel</span> - Casa rural Sabory.</li>
+         <li><span class="hour">21:30</span><span> Cena</span> - Restaurante Sabory (en la plaza)</li>
+          <li><span>Después de cenar, música y barra libre</span> - Casa rural Sabory</li>
      </ul>
    </div>
 
@@ -85,7 +85,7 @@
          <li><span> Coger CM-101 </span> dirección Humanes, aprox. 55 km</li>
           <li><span>A la altura de Fuencemillan,</span> en la rotonda, coger CM-1001. Aprox. 25km</li>
           <li><span> Girar a la izquierda en el cruce.</span> Hiendelaencina</li>
-            <li><span class="meson">Mesón Sabory</span> - <span class="casa">Casa rural sabory</span> - <span class="carabas">Casa Carabás</span> - <span class="perla">Casa rural la Perla</span></li>
+            <li><span class="meson">Mesón Sabory</span> - <span class="casa">Casa rural Sabory</span> - <span class="carabas">Casa Carabás</span> - <span class="perla">Casa rural la Perla</span></li>
 
      </ul>
      <img class="map" src="./assets/mapa.svg" />
@@ -113,7 +113,7 @@
 
     <div class="box" ref="block4">
      <h2 class="main-headline">Comparte tus fotos de la boda con nosotros subiendo a una carpeta compartida!</h2>
-     <a target="_blank" class="share-files" href="https://www.dropbox.com/request/iuBOXfBLEjwquaTldiCm">
+     <a target="_blank" class="share-files" href="https://www.dropbox.com/request/OKyKuQ6K68pHIhnME2Ad">
       <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><path d="M4,5h13v7h2V5c0-1.103-0.897-2-2-2H4C2.897,3,2,3.897,2,5v12c0,1.103,0.897,2,2,2h8v-2H4V5z"/><path d="M8 11L5 15 16 15 12 9 9 13z"/><path d="M19 14L17 14 17 17 14 17 14 19 17 19 17 22 19 22 19 19 22 19 22 17 19 17z"/></svg>
      </a>
    </div>
