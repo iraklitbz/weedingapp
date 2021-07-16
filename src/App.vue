@@ -62,7 +62,7 @@
 
            <div class="flex-group column" v-if="this.weedingAsistentes.asistes">
             <h3 class="main-headline">¿Alguna sugerencia musical?</h3>
-            <input class="form-control" type="text" placeholder="Nombre de canción, grupo o género musical" v-model="weedingAsistentes.musica">
+            <input class="form-control" type="text" placeholder="Canción, grupo, género musical o el enlace a tu lista favorita de Spotify!" v-model="weedingAsistentes.musica">
           </div>
 
             <div class="btn-send" v-on:click="SendForm">
