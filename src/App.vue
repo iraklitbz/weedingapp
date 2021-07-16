@@ -56,8 +56,13 @@
             <input class="form-control" type="text" placeholder="Gluten..." v-model="weedingAsistentes.tolerancia">
           </div>
           <div class="flex-group column" v-if="this.weedingAsistentes.asistes">
-            <h3 class="main-headline">¿Que sueles tomar?</h3>
+            <h3 class="main-headline">¿Qué sueles tomar?</h3>
             <input class="form-control" type="text" placeholder="Whisky, Ron, Vino..." v-model="weedingAsistentes.bebida">
+          </div>
+
+           <div class="flex-group column" v-if="this.weedingAsistentes.asistes">
+            <h3 class="main-headline">¿Alguna sugerencia musical?</h3>
+            <input class="form-control" type="text" placeholder="Nombre de canción, grupo o género musical" v-model="weedingAsistentes.musica">
           </div>
 
             <div class="btn-send" v-on:click="SendForm">
@@ -144,7 +149,8 @@ export default {
         asistes: true,
         pareja: false,
         bebida: '',
-        tolerancia: ''
+        tolerancia: '',
+        musica: ''
 
       }
     }
@@ -177,7 +183,8 @@ export default {
           asistes: this.weedingAsistentes.asistes,
           pareja: this.weedingAsistentes.pareja,
           bebida: this.weedingAsistentes.bebida,
-          tolerancia: this.weedingAsistentes.tolerancia
+          tolerancia: this.weedingAsistentes.tolerancia,
+          musica: this.weedingAsistentes.musica
         })
         .then(doc => {
             console.log(doc.id)
