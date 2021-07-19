@@ -20,14 +20,17 @@
   
      <div class="content">
 
+       <div class="box">
+          <h2 class="main-headline-alt"><b>¡Nos casamos!</b></h2>
+          <h2 class="main-headline"> Esperamos que nos acompañéis el día <span>25 de septiembre</span> a las <span>18:15</span> en la casa rural Sabory en <span>Hiendelaencina.</span></h2>
+        </div>
+
         <div class="box" ref="block1">
 
     <div class="sended" v-if="isSended">
       <h2 class="main-headline">Muchas gracias por tu tiempo! recibido el formulario</h2>
     </div>
     <form v-if="!isSended">
-          <h2 class="main-headline-alt"><b>¡Nos casamos!</b></h2>
-          <h2 class="main-headline"> Esperamos que nos acompañéis el día <span>25 de septiembre</span> a las <span>18:15</span> en la casa rural Sabory en <span>Hiendelaencina.</span></h2>
 
           <div class="flex-group">
             <div class="h-group">
@@ -62,7 +65,7 @@
 
            <div class="flex-group column" v-if="this.weedingAsistentes.asistes">
             <h3 class="main-headline">¿Alguna sugerencia musical?</h3>
-            <input class="form-control" type="text" placeholder="Canción, grupo, género musical o el enlace a tu lista favorita de Spotify!" v-model="weedingAsistentes.musica">
+            <input class="form-control" type="text" placeholder="Canción, enlace lista de spotify..." v-model="weedingAsistentes.musica">
           </div>
 
             <div class="btn-send" v-on:click="SendForm">
@@ -635,6 +638,10 @@ z-index: 9999;
   padding: 20px 0;
      border-top:1px solid #d9ebe9 ;
          margin-bottom: 0px;
+}
+.flex-group:first-child {
+  border-top: 0px;
+  padding-top: 0px;
 }
 .flex-group.center {
   display: flex;
