@@ -101,7 +101,12 @@
 
    <div class="box" ref="block3">
      <h2 class="main-headline">Horario autobuses</h2>
-     <p>Próximamente</p>
+      <ul class="main-list alt">
+       <li><span class="hour">17:15</span><span> Salida desde Jadraque</span> - Cuatro Caminos</li>
+        <li><span class="hour">04:30</span><span> Regreso desde Hiendelaencina</span> - En la calle principal de acceso al lugar de la celebración</li>
+         <li><span class="hour">06:00</span><span> Regreso desde Hiendelaencina</span> - En la calle principal de acceso al lugar de la celebración.</li>
+         
+     </ul>
    </div>
 
     <div class="box" ref="block34">
@@ -746,6 +751,10 @@ text-align: left;
 
 .main-list li:last-child {
 margin-top: 40px;
+}
+
+.main-list.alt li:last-child {
+margin-top: 0px;
 }
 
 .main-headline.bold {
